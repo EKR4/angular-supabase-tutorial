@@ -1,0 +1,78 @@
+:host {
+    display: block;
+}
+
+.app-sidebar {
+    padding: 1rem;
+    background: var(--sidebar-bg, #0f172a);
+    color: var(--sidebar-color, #e6edf3);
+    min-height: 100vh;
+}
+
+.brand {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.brand-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.menu-item+.menu-item {
+    margin-top: 0.5rem;
+}
+
+.menu-button {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: inherit;
+    padding: 0.5rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.menu-button:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.sidebar-foot {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    padding-top: 0.75rem;
+}
+
+.user-info {
+    font-size: 0.9rem;
+}
+
+.badge {
+    display: inline-block;
+    margin-right: 0.25rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.badge.admin {
+    background: #7c3aed;
+    color: #fff;
+}
+
+.badge.manager {
+    background: #0ea5a8;
+    color: #042;
+}
+
+.badge.customer {
+    background: #f59e0b;
+    color: #222;
+}

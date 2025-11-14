@@ -1,0 +1,26 @@
+:host {
+    display: block;
+}
+
+.app-footer {
+    padding: 1rem;
+    background: var(--footer-bg, #071132);
+    color: var(--footer-color, #dbeafe);
+}
+
+.app-footer .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-footer nav a {
+    margin-right: 0.5rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-user {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+}

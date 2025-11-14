@@ -1,0 +1,54 @@
+<div class="auth-card">
+    <h2>Create account</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <label class="field">
+			<span>Full name</span>
+			<input type="text" formControlName="displayName" placeholder="Jane Example" />
+			<small class="error" *ngIf="f.displayName.touched && f.displayName.invalid">
+				<span *ngIf="f.displayName.errors?.required">Name is required.</span>
+				<span *ngIf="f.displayName.errors?.minlength">Minimum 2 characters.</span>
+			</small>
+		</label>
+
+        <label class="field">
+			<span>Email</span>
+			<input type="email" formControlName="email" placeholder="you@example.com" />
+			<small class="error" *ngIf="f.email.touched && f.email.invalid">
+				<span *ngIf="f.email.errors?.required">Email is required.</span>
+				<span *ngIf="f.email.errors?.email">Enter a valid email.</span>
+			</small>
+		</label>
+
+        <label class="field">
+			<span>Password</span>
+			<input type="password" formControlName="password" placeholder="Choose a password" />
+			<small class="error" *ngIf="f.password.touched && f.password.invalid">
+				<span *ngIf="f.password.errors?.required">Password is required.</span>
+				<span *ngIf="f.password.errors?.minlength">At least 6 characters.</span>
+			</small>
+		</label>
+
+        <label class="field">
+			<span>Confirm password</span>
+			<input type="password" formControlName="confirmPassword" placeholder="Repeat password" />
+			<small class="error" *ngIf="form.errors?.mismatch && (f.confirmPassword.touched || f.password.touched)">
+				Passwords do not match.
+			</small>
+		</label>
+
+        <div class="form-actions">
+            <button type="submit" [disabled]="form.invalid || (auth.isLoading$ | async)">
+				{{ (auth.isLoading$ | async) ? 'Creating...' : 'Create account' }}
+			</button>
+        </div>
+
+        <div class="form-error" *ngIf="(auth.error$ | async) as error">
+            {{ error }}
+        </div>
+    </form>
+
+    <div class="foot">
+        <a routerLink="/auth/login">Already have an account? Sign in</a>
+    </div>
+</div>

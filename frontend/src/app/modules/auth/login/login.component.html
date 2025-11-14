@@ -1,0 +1,38 @@
+<div class="auth-card">
+    <h2>Sign in</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <label class="field">
+			<span>Email</span>
+			<input type="email" formControlName="email" placeholder="you@example.com" />
+			<small class="error" *ngIf="f.email.touched && f.email.invalid">
+				<span *ngIf="f.email.errors?.required">Email is required.</span>
+				<span *ngIf="f.email.errors?.email">Enter a valid email.</span>
+			</small>
+		</label>
+
+        <label class="field">
+			<span>Password</span>
+			<input type="password" formControlName="password" placeholder="Password" />
+			<small class="error" *ngIf="f.password.touched && f.password.invalid">
+				<span *ngIf="f.password.errors?.required">Password is required.</span>
+				<span *ngIf="f.password.errors?.minlength">Password must be at least 6 characters.</span>
+			</small>
+		</label>
+
+        <div class="form-actions">
+            <button type="submit" [disabled]="form.invalid || (auth.isLoading$ | async)">
+				{{ (auth.isLoading$ | async) ? 'Signing in...' : 'Sign in' }}
+			</button>
+        </div>
+
+        <div class="form-error" *ngIf="(auth.error$ | async) as error">
+            {{ error }}
+        </div>
+    </form>
+
+    <div class="foot">
+        <a routerLink="/auth/signup">Create an account</a>
+        <a routerLink="/auth/forgot" class="muted">Forgot password?</a>
+    </div>
+</div>

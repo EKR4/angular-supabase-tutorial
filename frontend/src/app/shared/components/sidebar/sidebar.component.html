@@ -1,0 +1,24 @@
+<nav class="app-sidebar">
+    <div class="brand">
+        <a routerLink="/" class="brand-link">MyApp</a>
+    </div>
+
+    <ul class="menu-list">
+        <li *ngFor="let item of menuItems" class="menu-item">
+            <button class="menu-button" (click)="onNavigate(item)">
+				{{ item.label }}
+			</button>
+        </li>
+    </ul>
+
+    <div class="sidebar-foot" *ngIf="user">
+        <div class="user-info">
+            <div class="user-name">{{ user.displayName || user.email }}</div>
+            <div class="user-roles">
+                <span *ngIf="isAdmin" class="badge admin">admin</span>
+                <span *ngIf="isManager" class="badge manager">manager</span>
+                <span *ngIf="isCustomer" class="badge customer">customer</span>
+            </div>
+        </div>
+    </div>
+</nav>

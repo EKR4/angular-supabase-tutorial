@@ -1,0 +1,23 @@
+<header class="app-navbar">
+    <div class="left">
+        <a routerLink="/" class="brand">MyApp</a>
+    </div>
+
+    <div class="right">
+        <nav class="links">
+            <a routerLink="/about">About</a>
+            <a routerLink="/contact">Contact</a>
+        </nav>
+
+        <div class="auth">
+            <ng-container *ngIf="user; else loggedOut">
+                <span class="user">{{ user.displayName || user.email }}</span>
+                <button class="btn-ghost" (click)="onSignOut()">Sign out</button>
+            </ng-container>
+            <ng-template #loggedOut>
+                <a routerLink="/auth/login" class="btn-link">Sign in</a>
+                <a routerLink="/auth/signup" class="btn-primary">Sign up</a>
+            </ng-template>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,15 @@
+<footer class="app-footer">
+    <div class="content">
+        <div class="left">
+            <small>&copy; {{ year }} MyApp</small>
+        </div>
+
+        <div class="right">
+            <nav>
+                <a routerLink="/about">About</a>
+                <a routerLink="/contact">Contact</a>
+            </nav>
+            <div *ngIf="user" class="footer-user">Signed in as {{ user.displayName || user.email }}</div>
+        </div>
+    </div>
+</footer>
